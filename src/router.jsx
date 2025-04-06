@@ -14,68 +14,68 @@ import PostWidgetDetail from "./views/PostWidgetDetail.jsx";
 import Header from "./components/Header.jsx";
 import About from "./views/About.jsx";
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Header />,
+    children: [
+      {
         path: "/",
-        element: <Header />,
+        element: <GuestLayout />,
         children: [
-            {
-                path: "/",
-                element: <GuestLayout />,
-                children: [
-                    {
-                        path: "/login",
-                        element: <Login />,
-                    },
-                    {
-                        path: "/register",
-                        element: <Register />,
-                    },
-                ],
-            },
-            {
-                path: "/",
-                element: <AuthLayout />,
-                children: [
-                    {
-                        path: "/",
-                        element: <UserLayout />,
-                        children: [
-                            {
-                                path: "/user",
-                                element: <UserForm />,
-                            },
-                        ],
-                    },
-                    {
-                        path: "/",
-                        element: <AdminLayout />,
-                        children: [
-                            {
-                                path: "/admin",
-                                element: <Admin />,
-                            },
-                        ],
-                    },
-                    {
-                        path: "/post/:id",
-                        element: <PostDetail />,
-                    },
-                ],
-            },
-
-            {
-                path: "/home",
-                element: <Home />,
-            },
-            {
-                path: "/about",
-                element: <About />,
-            },
-            {
-                path: "/new/:id",
-                element: <PostWidgetDetail />,
-            },
+          {
+            path: "/login",
+            element: <Login />,
+          },
+          {
+            path: "/register",
+            element: <Register />,
+          },
         ],
-    },
+      },
+      {
+        path: "/",
+        element: <AuthLayout />,
+        children: [
+          {
+            path: "/",
+            element: <UserLayout />,
+            children: [
+              {
+                path: "/user",
+                element: <UserForm />,
+              },
+            ],
+          },
+          {
+            path: "/",
+            element: <AdminLayout />,
+            children: [
+              {
+                path: "/admin",
+                element: <Admin />,
+              },
+            ],
+          },
+          {
+            path: "/post/:id",
+            element: <PostDetail />,
+          },
+        ],
+      },
+
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/new/:id",
+        element: <PostWidgetDetail />,
+      },
+    ],
+  },
 ]);
 export default router;
